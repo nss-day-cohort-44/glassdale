@@ -18,11 +18,11 @@ export const OfficerList = () => {
 
         officersContainer.innerHTML = `
           <h3>Glassdale Officers</h3>
-          <section>
+          <section class="officersList">
             ${officersHTMLRepresentations}
           </section>
         `
-    
+
       }
     })
 
