@@ -1,7 +1,3 @@
-import {getOfficers, useOfficers} from "./officers/OfficerProvider.js"
+import { OfficerList } from "./officers/OfficerList.js";
 
-getOfficers()
-    .then(() => {
-    const officerArray = useOfficers()
-    console.log(officerArray)
-})
+OfficerList()
