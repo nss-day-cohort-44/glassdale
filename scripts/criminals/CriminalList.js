@@ -65,6 +65,39 @@ eventHub.addEventListener("crimeSelected", event => {
   }
 })
 
+eventHub.addEventListener("officerSelected", officerSelectedEventObj => {
+  const selectedOfficerName = officerSelectedEventObj.detail.officerName
+  console.log("CriminalList: officerSelected custom event has been heard on the event hub, selected officer name: ", selectedOfficerName)
+
+  const criminalsArray = useCriminals()
+  console.log("criminalsArray", criminalsArray)
+
+  const filteredArrayCriminals = criminalsArray.filter(
+    (criminalObj) => {
+      // return criminalObj.arrestingOfficer === selectedOfficerName
+
+      // OR
+
+      // if (criminalObj.arrestingOfficer === selectedOfficerName) {
+      //   return true
+      // } else {
+      //   return false
+      // }
+
+      // OR
+
+      if (criminalObj.arrestingOfficer === selectedOfficerName) {
+        return true
+      }
+      return false
+    }
+  )
+  console.log("CriminalList: Array of criminals filtered for only the criminals that were arrested by selected officer", filteredArrayCriminals)
+
+  render(filteredArrayCriminals)
+  console.log("CriminalList: Filtered list of criminals rendered to DOM")
+})
+
 
 const render = (criminalsArray) => {
   let criminalsHTMLRepresentations = ""
