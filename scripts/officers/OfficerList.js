@@ -8,7 +8,7 @@ export const OfficerList = () => {
   getOfficers()
     .then(() => {
       const officerArray = useOfficers()
-      console.log(officerArray)
+      // console.log(officerArray)
 
       let officersHTMLRepresentations = ""
 

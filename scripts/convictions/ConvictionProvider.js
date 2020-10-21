@@ -10,7 +10,7 @@ export const getConvictions = () => {
   */
   return fetch("https://criminals.glassdale.us/crimes")
     .then(response => {
-      console.log("response before it's json", response)
+      // console.log("response before it's json", response)
       return response.json()
     })
     .then(convictionsArray => {
