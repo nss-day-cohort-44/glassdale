@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "dateOfInterview": "2020-10-23",
+      "timestamp": 1603385521409,
+      "author": "Bryan",
+      "suspect": "Jozie",
+      "note": "She seems innocent.",
+      "id": 1
+    },
+    {
+      "dateOfInterview": "2020-10-22",
+      "timestamp": 1603393348900,
+      "author": "Bryan",
+      "suspect": "Ted",
+      "note": "Ted is covering his mouth. Telltale sign of guilt.",
+      "id": 2
+    },
+    {
+      "dateOfInterview": "2020-10-08",
+      "timestamp": 1603393420826,
+      "author": "Andy Collins",
+      "suspect": "Kristen",
+      "note": "She's kinda shifty.",
+      "id": 3
+    }
+  ]
+}
