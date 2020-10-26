@@ -3,8 +3,9 @@ import { CriminalList } from "./criminals/CriminalList.js";
 import { NoteForm } from "./notes/NoteForm.js";
 import { OfficerList } from "./officers/OfficerList.js";
 import { OfficerSelect } from "./officers/OfficerSelect.js";
-import { NoteList} from "./notes/NoteList.js"
-import { createAlibiEventListener } from "./criminals/AlibiList.js"
+import { NoteList } from "./notes/NoteList.js"
+// import the module for adding a list of alibis to a criminal card
+import "./criminals/AlibiList.js"
 
 
 OfficerList()
@@ -14,5 +15,3 @@ OfficerSelect()
 NoteForm()
 
 NoteList()
-
-createAlibiEventListener()
