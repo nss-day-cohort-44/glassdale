@@ -1,28 +1,20 @@
 {
   "notes": [
     {
-      "dateOfInterview": "2020-10-23",
-      "timestamp": 1603385521409,
-      "author": "Bryan",
-      "suspect": "Jozie",
-      "note": "She seems innocent.",
+      "dateOfInterview": "2020-11-26",
+      "timestamp": 1604610974892,
+      "author": "Jisie",
+      "criminalId": 8,
+      "note": "He did it!",
       "id": 1
     },
     {
-      "dateOfInterview": "2020-10-22",
-      "timestamp": 1603393348900,
-      "author": "Bryan",
-      "suspect": "Ted",
-      "note": "Ted is covering his mouth. Telltale sign of guilt.",
+      "dateOfInterview": "2020-11-25",
+      "timestamp": 1604613017771,
+      "author": "Jisie",
+      "criminalId": 16,
+      "note": "He was sneaking",
       "id": 2
-    },
-    {
-      "dateOfInterview": "2020-10-08",
-      "timestamp": 1603393420826,
-      "author": "Andy Collins",
-      "suspect": "Kristen",
-      "note": "She's kinda shifty.",
-      "id": 3
     }
   ]
 }
