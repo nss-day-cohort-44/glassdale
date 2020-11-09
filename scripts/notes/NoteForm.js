@@ -35,7 +35,7 @@ eventHub.addEventListener("click", clickEvent => {
         const note = document.querySelector("#note--note").value
         const timestamp = Date.now()
         // make a note object
-        
+
         const newNote = {
             dateOfInterview,
             timestamp,
