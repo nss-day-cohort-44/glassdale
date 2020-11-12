@@ -23,9 +23,16 @@ export const CriminalList = () => {
     .then(getFacilities)
     .then(getCriminalFacilities)
     .then(() => {
+
+      // Update component state, which comes from application
+      //           state, which came from API state.
+
+      //           API -> Application -> Component
+
       criminals = useCriminals()
       facilities = useFacilities()
       criminalFacilities = useCriminalFacilities()
+
       render()
     })
 }
@@ -74,6 +81,7 @@ eventHub.addEventListener("crimeSelected", event => {
       Then invoke render() and pass the filtered collection as
       an argument
     */
+    // Update component state for the array of criminals
     criminals = filteredCriminalsArray
     render()
   }
@@ -108,6 +116,7 @@ eventHub.addEventListener("officerSelected", officerSelectedEventObj => {
   )
   console.log("CriminalList: Array of criminals filtered for only the criminals that were arrested by selected officer", filteredArrayCriminals)
 
+  // Update component state for the array of criminals
   criminals = filteredArrayCriminals
 
   render()
