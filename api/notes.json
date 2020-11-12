@@ -1,3 +1,20 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "dateOfInterview": "2020-11-11",
+      "timestamp": 1605142714296,
+      "author": "Alessia Bailey",
+      "criminalId": 11,
+      "note": "Was seen lurking in the evenings.",
+      "id": 1
+    },
+    {
+      "dateOfInterview": "2020-11-13",
+      "timestamp": 1605142995327,
+      "author": "Marlin Oberbrunner",
+      "criminalId": 25,
+      "note": "Seemed nervous when answering questions",
+      "id": 2
+    }
+  ]
 }
