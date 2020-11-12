@@ -1,6 +1,8 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js"
 import { Criminal } from "./Criminal.js"
 import { useConvictions } from "../convictions/ConvictionProvider.js"
+import { getFacilities, useFacilities } from "../facilities/FacilityProvider.js"
+import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityProvider.js"
 
 /*
     Which element in your HTML contains all components?
@@ -11,14 +13,21 @@ const eventHub = document.querySelector(".container")
 
 const criminalsContainer = document.querySelector(".caseDataContainer")
 
+let criminals = []
+let facilities = []
+let criminalFacilities = []
+
 export const CriminalList = () => {
 
   getCriminals()
+    .then(getFacilities)
+    .then(getCriminalFacilities)
     .then(() => {
-      const criminalArray = useCriminals()
-      render(criminalArray)
+      criminals = useCriminals()
+      facilities = useFacilities()
+      criminalFacilities = useCriminalFacilities()
+      render()
     })
-
 }
 
 
@@ -61,7 +70,8 @@ eventHub.addEventListener("crimeSelected", event => {
       Then invoke render() and pass the filtered collection as
       an argument
     */
-    render(filteredCriminalsArray)
+    criminals = filteredCriminalsArray
+    render()
   }
 })
 
@@ -94,22 +104,37 @@ eventHub.addEventListener("officerSelected", officerSelectedEventObj => {
   )
   console.log("CriminalList: Array of criminals filtered for only the criminals that were arrested by selected officer", filteredArrayCriminals)
 
-  render(filteredArrayCriminals)
+  criminals = filteredArrayCriminals
+
+  render()
   console.log("CriminalList: Filtered list of criminals rendered to DOM")
 })
 
 
-const render = (criminalsArray) => {
+const render = () => {
   let criminalsHTMLRepresentations = ""
-  for (const criminal of criminalsArray) {
+  // Step 1 - Iterate all criminals
+  for (const criminal of criminals) {
 
-    criminalsHTMLRepresentations += Criminal(criminal)
+    // Step 2 - Filter all relationships to get only ones for this criminal
+    const facilityRelationshipsForThisCriminal = criminalFacilities.filter(cf => cf.criminalId === criminal.id)
 
-    criminalsContainer.innerHTML = `
-          <h3>Glassdale Criminals</h3>
-          <section class="criminalsList">
-            ${criminalsHTMLRepresentations}
-          </section>
-        `
+
+    // Step 3 - Convert the relationships to facilities with map()
+    const matchedFacilities = facilityRelationshipsForThisCriminal.map(cf => {
+      const matchingFacilityObject = facilities.find(facility => facility.id === cf.facilityId)
+      return matchingFacilityObject
+    })
+
+    // debugger
+
+    criminalsHTMLRepresentations += Criminal(criminal, matchedFacilities)
+
   }
+  criminalsContainer.innerHTML = `
+        <h3>Glassdale Criminals</h3>
+        <section class="criminalsList">
+          ${criminalsHTMLRepresentations}
+        </section>
+      `
 }
