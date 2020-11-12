@@ -41,22 +41,22 @@ const render = (notesArray, criminalsArray) => {
 }
 
 eventHub.addEventListener("click", clickEvent => {
-  console.log(clickEvent, "id?")
-    if (clickEvent.target.id.startsWith("deleteNote--")) {
-        const [prefix, id] = clickEvent.target.id.split("--")
+  // console.log(clickEvent, "id?")
+  if (clickEvent.target.id.startsWith("deleteNote--")) {
+    const [prefix, id] = clickEvent.target.id.split("--")
 
-        /*
-            Invoke the function that performs the delete operation.
+    /*
+        Invoke the function that performs the delete operation.
 
-            Once the operation is complete you should THEN invoke
-            useNotes() and render the note list again.
-        */
-       deleteNote(id).then(
-           () => {
-               const updatedNotes = useNotes()
-               const criminals = useCriminals()
-               render(updatedNotes, criminals)
-           }
-       )
-    }
+        Once the operation is complete you should THEN invoke
+        useNotes() and render the note list again.
+    */
+    deleteNote(id).then(
+      () => {
+        const updatedNotes = useNotes()
+        const criminals = useCriminals()
+        render(updatedNotes, criminals)
+      }
+    )
+  }
 })

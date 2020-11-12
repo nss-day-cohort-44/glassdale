@@ -8,12 +8,16 @@ import { NoteList } from "./notes/NoteList.js"
 import "./criminals/AlibiList.js"
 import { renderWitnessButton } from "./witnesses/WitnessStmntButton.js";
 import "./witnesses/WitnessStmntList.js"
-
+import { renderFacilityButton } from "./facilities/DisplayFacilitiesButton.js";
+import "./facilities/FacilityList.js"
+import { renderCriminalButton } from "./criminals/DisplayCriminalsButton.js"
 
 OfficerList()
 ConvictionSelect()
 CriminalList()
 OfficerSelect()
+renderCriminalButton()
+renderWitnessButton()
+renderFacilityButton()
 NoteForm()
 NoteList()
-renderWitnessButton()

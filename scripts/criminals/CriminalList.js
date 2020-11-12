@@ -21,6 +21,10 @@ export const CriminalList = () => {
 
 }
 
+eventHub.addEventListener("criminalsClicked", () => {
+  CriminalList()
+})
+
 
 // Listen for the custom event you dispatched in ConvictionSelect
 eventHub.addEventListener("crimeSelected", event => {
